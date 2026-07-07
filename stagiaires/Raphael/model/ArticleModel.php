@@ -36,3 +36,24 @@ function selectHomepageArticle(PDO $db): array|string|bool
     return $articles;
 
 }
+
+/**
+ * Fonction qui va couper le texte en dehors  des mots
+ */
+function cutTheText(string $text, int $lenght=200): ?string
+{
+    // on compte le nombre de caractères
+    $count = strlen($text);
+    // si la longueur du texte est plus petite ou égaleà $length
+    if($count<=$lenght) return $text;
+    // on coupe à la longueur de length
+    $text = substr($text,0,$lenght);
+    // on va trouver l'emplacement du dernier espace, si il y en a dans le reste du texte
+    $lastSpace = strripos($text, " ");
+    // on le coupe au dernier espace trouvé
+    $text = substr($text,0,$lastSpace);
+    
+    return $text;
+}
+
+echo cutTheText("coucou les amis",11);

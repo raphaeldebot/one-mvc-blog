@@ -66,7 +66,7 @@
         endif;
         ?>
         <p class="lead">écrit pas <a href="?iduser=<?= $article["iduser"] ?>"><?= $article['realname'] ?></a> le <?= $article['datetime'] ?> </p>
-        <p>Notre texte résumé</p>
+        <p><?= cutTheText($article['content'],200)?>... <a href="?idarticle=<?p= $article['id']?>">Lire la suite</a></p>
       </div>
             <?php
                 endforeach;

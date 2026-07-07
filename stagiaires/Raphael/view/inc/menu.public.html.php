@@ -6,12 +6,14 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Accueil</a></li>
                         <?php
+                        if(is_null($menu)):
                         foreach($menu as $item):
 
                         ?>
                         <li class="nav-item"><a class="nav-link" href="?idcateg=<?= $item['id'] ?>"><?= $item['title'] ?></a></li>
                         <?php
                         endforeach;
+                        endif;
                         ?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
